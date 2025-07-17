@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./blaceShoesStyle.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mina:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 輪播 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="navItem">
+      <div class="navBox">
+        <div class="logo">
+           <span>URBNSTEP</span>
+        </div>
+        <div class="navBar">
+          <div class="oneNavBar">
+            <span><a href="./index.html">商品列表</a></span>
+          </div>
+          <div class="twoNavBar">
+            <span><a href="javascript">品牌故事</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="navIcon">
+        <div class="iconBox">
+          <img src="./img/Vector.png" alt="">
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- 首頁 -->
+  <section class="section" id="app">
+    <div class="container" v-show="indexShow">
+      <p><span>首頁</span><span class="content">/</span><span>所有商品</span></p>
+      <div class="allMerchandise">
+        <h3>所有商品</h3>
+      </div>
+      <div class="merchandiseItem">
+        <div class="listItem">
+          <div class="listpart" v-for="(item, key) in productsItem" :key="'item'+ key"
+          @click.prevent="clickItem(item)" :class="getStyle(item)" >
+            <div class="listBox" >
+              <a href="javascript:;" >
+                <h6 :style="item.merchandiseName === '所有商品'?{color: '#57a203'}:{color:'#212529'}">{{item.merchandiseName}}</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="shopItem" @click.prevent="shoeIntroduction($event)">
+          <div class="row">
+            <div class="col":style="watchItem('滑板鞋')">
+              <div class="card">
+                <a href="javascript:;">
+                  <img src="./img/1.png" alt="" :data-num="ProductNum">
+                </a>
+              </div>
+              <div class="textBox">
+                  <p><span class="oneCol">PLATFORM 404</span></p>
+                  <p><span class="twoCol">NT$2,600</span></p>
+                </div>
+            </div>
+            <div class="col" :style="watchItem('滑板鞋')">
+              <div class="card">
+                <a href="javascript:;">
+                  <img src="./img/2.png" alt="">
+                </a>
+              </div>
+              <div class="textBox">
+                  <p><span class="oneCol">PLATFORM 404</span></p>
+                  <p><span class="twoCol">NT$2,600</span></p>
+                </div>
+            </div>
+            <div class="col" :style="watchItem('滑板鞋')">
+              <div class="card">
+                <a href="javascript:;">
+                  <img src="./img/5.png" alt="">
+                </a>
+              </div>
+              <div class="textBox">
+                  <p><span class="oneCol">VM001</span></p>
+                  <p><span class="twoCol">NT$2,600</span></p>
+                </div>
+            </div>
+         </div>
+          <div class="row">
+            <div class="col" :style="watchItem('限定 / 聯名企劃')">
+              <div class="card">
+                <a href="javascript:;">
+                  <img src="./img/3.png" alt="">
+                </a>
+              </div>
+              <div class="textBox">
+                  <p><span class="oneCol">Melty Kiss</span></p>
+                  <p><span class="twoCol">NT$4,000</span></p>
+                </div>
+            </div>
+            <div class="col" :style="watchItem('厚底鞋')">
+              <div class="card">
+                <a href="javascript:;">
+                  <img src="./img/4.png" alt="">
+                </a>
+              </div>
+              <div class="textBox">
+                  <p><span class="oneCol">BOOMBLOK</span></p>
+                  <p><span class="twoCol">NT$3,200</span></p>
+                </div>
+            </div>
+            <div class="col" :style="watchItem('厚底鞋')">
+              <div class="card">
+                <a href="javascript:;">
+                  <img src="./img/6.png" alt="">
+                </a>
+              </div>
+              <div class="textBox">
+                  <p><span class="oneCol">BOOMBLOK</span></p>
+                  <p><span class="twoCol">NT$3,200</span></p>
+                </div>
+            </div>
+         </div>
+          <div class="row">
+            <div class="col" :style="watchItem('慢跑鞋')">
+              <div class="card">
+                <a href="javascript:;">
+                  <img src="./img/7.png" alt="">
+                </a>
+              </div>
+              <div class="textBox">
+                  <p><span class="oneCol">R:UNER</span></p>
+                  <p><span class="twoCol">NT$4,000</span></p>
+                </div>
+            </div>
+            <div class="col" :style="watchItem('限定 / 聯名企劃')">
+              <div class="card">
+                <a href="javascript:;">
+                  <img src="./img/8.png" alt="">
+                </a>
+              </div>
+              <div class="textBox">
+                  <p><span class="oneCol">Sugar Snap</span></p>
+                  <p><span class="twoCol">NT$4,000</span></p>
+                </div>
+            </div>
+            <div class="col" :style="watchItem('慢跑鞋')">
+              <div class="card">
+                <a href="javascript:;">
+                  <img src="./img/image 7.png" alt="">
+                </a>
+              </div>
+              <div class="textBox">
+                  <p><span class="oneCol">Neofoam</span></p>
+                  <p><span class="twoCol">NT$4,000</span></p>
+                </div>
+            </div>
+         </div>
+         <div class="shopItemFoot">
+            <div class="leftBox">
+              <div class="smallBox">
+                <a href="javascript:;">
+                  <img src="./img/Vector1.png" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="middleBox" @click.prevent="changeBg($event)">
+              <div class="oneBox"
+              :style="string === '1'?{backgroundColor:'#c0fa73', transition: '0.5s'}:{backgroundColor:'#ffffff', transition: '0.5s'}" >
+                <a href="javascript:;">1</a>
+              </div>
+              <div class="twoBox"
+               :style="string === '2'?{backgroundColor:'#c0fa73', transition: '0.5s'}:{backgroundColor:'#ffffff', transition: '0.5s'}">
+                <a href="javascript:;">2</a>
+              </div>
+              <div class="threeBox"
+              :style="string === '3'?{backgroundColor:'#c0fa73', transition: '0.5s'}:{backgroundColor:'#ffffff', transition: '0.5s'}">
+                <a href="javascript:;">3</a>
+              </div>
+              <div class="fourBox" :style="string === '...'?{backgroundColor:'#c0fa73', transition: '0.5s'}:{backgroundColor:'#ffffff', transition: '0.5s'}" >
+                <a href="javascript:;">...</a>
+              </div>
+              <div class="tenBox" :style="string === '10'?{backgroundColor:'#c0fa73', transition: '0.5s'}:{backgroundColor:'#ffffff', transition: '0.5s'}">
+                <a href="javascript:;">10</a>
+              </div>
+            </div>
+             <div class="rightBox">
+              <div class="smallBox">
+                <a href="javascript:;">
+                  <img src="./img/Vector2.png" alt="">
+                </a>
+              </div>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+   <!-- 刪 /section -->
+    <div class="partIi" v-show="indexShow"> <!-- section 改 div -->
+      <div class="partIiBox">
+        <span>加入會員取得 9 折優惠</span>
+        <span class="btn"><a href="javascript:;">馬上註冊</a></span>
+      </div>
+    </div> <!-- section tag 改 /div tag -->
+    <!-- 並增加鞋子介紹頁面 -->
+    <div class="introductionContainer" v-show="blackShoesShow">
+     <div class="blackShoe">
+      <div class="one">
+        <img src="./img/imageOne.png" alt="">
+      </div>
+      <div class="two">
+        <img src="./img/imageTwo.png" alt="">
+      </div>
+      <div class="three">
+        <img src="./img/imageThree.png" alt="">
+      </div>
+      <div class="four">
+        <img src="./img/imageFour.png" alt="">
+      </div>
+      <div class="five">
+        <img src="./img/imageFive.png" alt="">
+      </div>
+      <div class="six">
+        <img src="./img/imageSix.png" alt="">
+      </div>
+      <div class="seven">
+        <img src="./img/imageSeven.png" alt="">
+      </div>
+      <div class="eight">
+        <img src="./img/imageEight.png" alt="">
+      </div>
+     </div>
+     <div class="blackShoesDetails">
+      <div class="topDetails">
+        <div class="topOne">
+          <p><span>首頁</span><span class="special">/</span><span>女鞋</span><span
+             class="special">/</span><span>滑板鞋</span><span class="special">/</span><span
+             class="specialColor">Platform 404</span>
+          </p>
+          <h2>Platform 404</h2>
+        </div>
+        <div class="middleTwo">
+          <h5>NT$2,600</h5>
+          <span>NT$3,200</span>
+        </div>
+        <div class="lastThree">
+          <p>Platform 404 以柔和奶白為底，搭配深藍色皮革點綴，走在街上自帶回頭率。鞋型採用復古運動風輪廓，結合輕量厚底與柔軟泡棉鞋舌，兼顧美感與舒適。</p>
+          <p>鞋身選用柔軟皮革材質，打造出清新卻不失個性的氛圍，並以鞋面透氣孔設計提升穿著體驗，兼顧質感與舒適度，適合日常長時間著用。無論是街頭穿搭、日常通勤或週末出遊都能輕鬆駕馭。</p>
+        </div>
+      </div>
+      <div class="middleDetails">
+        <div class="topFour">
+          <p>顏色</p>
+          <div class="colorBox">
+            <div class="blueBox">
+              <div class="smallPic">
+                <img src="./img/black.png" alt="">
+              </div>
+              <span>藍色</span>
+            </div>
+            <div class="khakiBox">
+              <div class="smallPic">
+                <img src="./img/yallow.png" alt="">
+              </div>
+              <span>卡其色</span>
+            </div>
+          </div>
+        </div>
+        <div class="middleFive">
+          <p>尺寸</p>
+          <ul class="sizeDisplay">
+            <li class="firstColor"><span>35(22.5cm)</span></li>
+            <li><span>36(23.0cm)</span></li>
+            <li><span>37(23.5cm)</span></li>
+            <li><span>38(24.0cm)</span></li>
+            <li><span>39(24.5cm)</span></li>
+            <li><span>40(25.0cm)</span></li>
+            <li><span>41(26.0cm)</span></li>
+            <li class="lastColor"><span>42(26.5cm)</span></li>
+            <li class="lastColor"><span>43(27.0cm)</span></li>
+          </ul>
+          <span>僅剩 3 雙</span>
+        </div>
+        <div class="btnBox">
+          <div class="whiteBox">
+            <div class="loveBox">
+              <img src="./img/love.png" alt="love">
+            </div>
+            <span>加入收藏</span>
+          </div>
+          <div class="blackBox">
+            <div class="bagBox">
+              <img src="./img/bag.png" alt="bag">
+            </div>
+            <span>門市預約試穿</span>
+          </div>
+        </div>
+      </div>
+      <div class="lastDetails">
+        <div class="topText">
+          <p>商品材質</p>
+          <div class="textBox">
+            鞋面：合成皮革（Synthetic Leather）<br>
+            內裡：透氣網布材質，提升舒適與排汗性 <br>
+            鞋底：EVA 輕量發泡橡膠，具備良好緩震與止滑效果<br>
+            鞋帶：聚酯纖維，耐拉扯不易鬆脫<br>
+          </div>
+        </div>
+        <div class="middleText">
+          <p>購買須知</p>
+          <div class="textBox">
+            商品顏色因螢幕顯示可能略有差異，請以實品為準。<br>
+            建議首次穿著前試穿確認尺寸，避免影響退換貨權益。<br>
+            本商品為限量發售，庫存有限，如需更換尺寸請儘早聯繫客服協助處<br>
+            理。
+          </div>
+        </div>
+        <div class="lastText">
+          <p>保養方式</p>
+          <div class="textBox">
+            建議以乾布或微濕軟布擦拭表面汙漬，避免機洗或長時間浸水。<br>
+            收納時請放置於乾燥通風處，避免日曬及高溫導致變形或龜裂。<br>
+            若需深層清潔，建議使用中性清潔劑並搭配柔刷輕刷，勿使用漂白水或<br>
+            強酸強鹼清潔劑。
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+    <div class="shoesList" v-show="blackShoesShow">
+      <div class="maybeLike">
+        <div class="maybeLikeText">
+          <h4>你可能也喜歡...</h4>
+          <div class="arrowheadBox">
+            <div class="leftArrowBox">
+              <div class="setArrowSmallBox">
+                <img src="./img/leftArrow.png" alt="">
+              </div>
+            </div>
+            <div class="rightArrowBox">
+              <div class="setArrowSmallBox">
+                <img src="./img/rightArrow.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 手動輪播 -->
+        <div class="maybeLikePic swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide maybeLikeCard">
+              <div class="maybeLikeCardBox">
+                <img src="./img/5.png" alt="grayShoes">
+              </div>
+              <div class="describeBox">
+                <p>VM001</p>
+                <p class="lastP">NT$2,600</p>
+              </div>
+            </div>
+            <div class="swiper-slide maybeLikeCard">
+              <div class="maybeLikeCardBox">
+                <img src="./img/3.png" alt="grayShoes">
+              </div>
+              <div class="describeBox">
+                <p>Melty Kiss</p>
+                <p class="lastP">NT$4,000</p>
+              </div>          
+            </div>
+            <div class="swiper-slide maybeLikeCard">
+                <div class="maybeLikeCardBox">
+                <img src="./img/4.png" alt="grayShoes">
+              </div>
+              <div class="describeBox">
+                <p>BOOMBLOK</p>
+                <p class="lastP">NT$3,200</p>
+              </div>
+            </div>
+            <div class="swiper-slide maybeLikeCard">
+              <div class="maybeLikeCardBox">
+                <img src="./img/8.png" alt="grayShoes">
+              </div>
+              <div class="describeBox">
+                <p>Sugar Snap</p>
+                <p class="lastP">NT$3,200</p>
+              </div>
+            </div>
+            <div class="swiper-slide maybeLikeCard">
+              <div class="maybeLikeCardBox">
+                <img src="./img/2.png" alt="grayShoes">
+              </div>
+              <div class="describeBox">
+                <p>PLATFORM 404</p>
+                <p class="lastP">NT$2,600</p>
+              </div>
+            </div>
+            <div class="swiper-slide maybeLikeCard">
+              <div class="maybeLikeCardBox">
+                <img src="./img/6.png" alt="grayShoes">
+              </div>
+              <div class="describeBox">
+                <p>BOOMBLOK</p>
+                <p class="lastP">NT$3,200</p>
+              </div>
+            </div>
+            <div class="swiper-slide maybeLikeCard">
+              <div class="maybeLikeCardBox">
+                <img src="./img/7.png" alt="grayShoes">
+              </div>
+              <div class="describeBox">
+                <p>R:UNER</p>
+                <p class="lastP">NT$4,000</p>
+              </div>
+            </div>
+            <div class="swiper-slide maybeLikeCard">
+              <div class="maybeLikeCardBox">
+                <img src="./img/image 7.png" alt="grayShoes">
+              </div>
+              <div class="describeBox">
+                <p>Neofoam</p>
+                <p class="lastP">NT$4,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="register" v-show="blackShoesShow">
+      <div class="registerBox">
+        <span>加入會員取得 9 折優惠</span>
+        <span class="registerBtn"><a href="javascript:;">馬上註冊</a></span>
+      </div>
+    </div>
+  </section>
+  <footer class="footBottom" >
+    <div class="footBoxI">
+      <div class="lfetFootSmallBox">
+        <span>URBNSTEP</span>
+      </div>
+      <div class="rightFootSmallBox">
+        <p><span>商品列表</span></p>
+        <p><span>品牌故事</span></p>
+      </div>
+    </div>
+    <div class="footBoxIi">
+      <span class="lastTwo">Copyright ©2025 URBNSTYLE</span>
+      <span class="last">All Rights Reserved.</span>
+    </div>
+  </footer>
+  <!-- Vue -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.17/vue.global.prod.min.js" integrity="sha512-B+xT9hBEokScoEYqF2L6zjF/R0mtYb11XURk2ERx89eRofWtgsrCljvx30JospRZRI3v19p9pRWvmLQ6ySS9FA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./vue.js"></script>
+  <script>
+    const slides = document.querySelectorAll('.swiper-slide');
+    // console.log(slides);  
+    // console.log(slides.length);  //確認有幾個 .swiper-slide
+
+    let swiper = new Swiper(".mySwiper", {
+      // loop: slides.length >= 5, // 循環
+      loop: true, // 循環
+      watchSlidesProgress: true,
+      // slidesPerView: 3.94,
+      slidesPerView: 3.95,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+    });
+  </script>
+</body>
+</html>

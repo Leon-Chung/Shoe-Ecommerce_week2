@@ -1,0 +1,410 @@
+@charset "UTF-8";
+/* 鞋子樣式預設或被選中的樣式 */
+.active {
+  background: #f1f3f7;
+  transition: 0.3s;
+}
+
+.faded {
+  background: #ffffff;
+  transition: 0.3s;
+}
+
+/* 換頁預設或被選中的樣式 */
+.act {
+  background: #c0fa73;
+  transition: 0.3s;
+}
+
+.fad {
+  background: #ffffff;
+  transition: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  width: 1920px;
+}
+.header .navItem {
+  max-width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .navItem .navBox {
+  display: inline-flex;
+  margin: 16px 0px 16px 312px;
+  gap: 48px;
+}
+.header .navItem .navBox .logo {
+  padding: 8px 12px;
+  gap: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+.header .navItem .navBox .logo span {
+  max-width: 105px;
+  max-height: 30px;
+  font-family: "Mina";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.044em;
+}
+.header .navItem .navBox .navBar {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+.header .navItem .navBox .navBar .oneNavBar, .header .navItem .navBox .navBar .twoNavBar {
+  display: flex;
+  padding: 12px 0px;
+  gap: 8px;
+  min-height: 48px;
+}
+.header .navItem .navBox .navBar .oneNavBar span, .header .navItem .navBox .navBar .twoNavBar span {
+  max-width: 100%;
+  max-height: 100%;
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+}
+.header .navItem .navBox .navBar .oneNavBar span a, .header .navItem .navBox .navBar .twoNavBar span a {
+  text-decoration: none;
+  color: #212529;
+}
+.header .navItem .navIcon {
+  display: flex;
+  margin: 16px 312px 16px 0px;
+  padding: 12px;
+  gap: 12px;
+}
+.header .navItem .navIcon .iconBox {
+  width: 24px;
+  height: 24px;
+}
+.header .navItem .navIcon .iconBox img {
+  position: relative;
+  max-width: 18px;
+  max-height: 18px;
+  top: 3px;
+  left: 3px;
+}
+
+.section {
+  max-width: 100%;
+}
+.section .container {
+  max-width: 1920px;
+  display: grid;
+  padding: 32px 312px;
+  gap: 24px;
+}
+.section .container p {
+  display: flex;
+  max-width: 100%;
+  gap: 12px;
+}
+.section .container p span {
+  display: flex;
+  gap: 10px;
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  color: #6C757d;
+}
+.section .container p .content {
+  font-family: "Noto Sans TC";
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0em;
+  color: #dee2e6;
+}
+.section .container .allMerchandise {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0px;
+}
+.section .container .allMerchandise h3 {
+  font-family: "Noto Sans TC";
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 120%;
+  letter-spacing: 0.05em;
+  color: #212529;
+}
+.section .container .merchandiseItem {
+  display: flex;
+  max-width: 100%;
+  gap: 24px;
+}
+.section .container .merchandiseItem .listItem {
+  display: grid;
+  width: 196px;
+  max-height: 304px;
+  padding-right: 24px;
+  gap: 16px;
+}
+.section .container .merchandiseItem .listItem .listpart {
+  display: grid;
+  max-width: 100%;
+  max-height: 48px;
+  min-height: 48px;
+  border-bottom: 1px;
+  gap: 8px;
+}
+.section .container .merchandiseItem .listItem .listpart .listBox {
+  display: grid;
+  align-content: center;
+  border: 1px;
+  padding: 8px 0px;
+  gap: 8px;
+}
+.section .container .merchandiseItem .listItem .listpart .listBox a {
+  text-decoration: none;
+}
+.section .container .merchandiseItem .listItem .listpart .listBox a h6 {
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  color: #212529;
+}
+.section .container .merchandiseItem .shopItem {
+  width: 1076px;
+  display: grid;
+  gap: 48px;
+  justify-items: center;
+}
+.section .container .merchandiseItem .shopItem .row {
+  max-width: 1076px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+.section .container .merchandiseItem .shopItem .row .col {
+  width: 342.67px;
+  display: grid;
+  gap: 12px;
+}
+.section .container .merchandiseItem .shopItem .row .col .card {
+  height: 342.67px;
+  display: flex;
+  gap: 10px;
+  background: #f1f3f7;
+}
+.section .container .merchandiseItem .shopItem .row .col .card img {
+  display: block;
+  width: 342.67px;
+  height: 342.67px;
+}
+.section .container .merchandiseItem .shopItem .row .col .textBox {
+  display: grid;
+  gap: 4px;
+}
+.section .container .merchandiseItem .shopItem .row .col .textBox p .oneCol {
+  font-family: "Noto Sans TC";
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0.05em;
+  color: #212529;
+}
+.section .container .merchandiseItem .shopItem .row .col .textBox p .twoCol {
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  color: #212529;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot {
+  max-width: 336px;
+  display: flex;
+  gap: 12px;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .leftBox, .section .container .merchandiseItem .shopItem .shopItemFoot .rightBox {
+  display: flex;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 4px;
+  padding: 8px;
+  gap: 8px;
+  opacity: 0.4;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .leftBox .smallBox, .section .container .merchandiseItem .shopItem .shopItemFoot .rightBox .smallBox {
+  width: 20px;
+  height: 20px;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .leftBox .smallBox a img, .section .container .merchandiseItem .shopItem .shopItemFoot .rightBox .smallBox a img {
+  position: relative;
+  display: block;
+  width: 8.75px;
+  height: 16.25px;
+  top: 1.87px;
+  left: 5.62px;
+  color: #212529;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .middleBox {
+  display: flex;
+  max-width: 232px;
+  gap: 8px;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .oneBox, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .twoBox, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .threeBox, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .fourBox, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .tenBox {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  gap: 10px;
+  background-color: #c0fa73;
+  justify-content: center;
+  align-content: center;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .oneBox a, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .twoBox a, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .threeBox a, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .fourBox a, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .tenBox a {
+  width: 10px;
+  height: 24px;
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: #212529;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .twoBox, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .threeBox, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .fourBox, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .tenBox {
+  background-color: #ffffff;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .twoBox a, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .threeBox a, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .fourBox a, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .tenBox a {
+  width: 9px;
+  font-weight: 400;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .fourBox a, .section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .tenBox a {
+  width: 15px;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .middleBox .tenBox a {
+  width: 19px;
+}
+.section .container .merchandiseItem .shopItem .shopItemFoot .rightBox {
+  opacity: 1;
+}
+.section .partIi {
+  display: grid;
+  max-width: 100%;
+  padding-top: 48px;
+  gap: 10px;
+}
+.section .partIi .partIiBox {
+  display: flex;
+  width: 1920px;
+  height: 96px;
+  padding: 24px;
+  gap: 24px;
+  background: #e8fec5;
+  justify-content: center;
+  align-items: center;
+}
+.section .partIi .partIiBox span {
+  max-width: 100%;
+  height: 29px;
+  font-family: "Noto Sans TC";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: 0.05em;
+  color: #212529;
+}
+.section .partIi .partIiBox .btn {
+  display: flex;
+  max-width: 100%;
+  min-height: 48px;
+  border-radius: 4px;
+  padding: 12px 24px;
+  gap: 8px;
+  background: #212529;
+  align-items: center;
+}
+.section .partIi .partIiBox .btn a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  font-size: 16px;
+}
+
+.footBottom {
+  display: grid;
+  max-width: 1920px;
+  padding: 64px 312px;
+  gap: 24px;
+  background: #f8f9fa;
+}
+.footBottom .footBoxI {
+  display: flex;
+  max-width: 1296px;
+  max-height: 48px;
+  justify-content: space-between;
+  align-items: center;
+}
+.footBottom .footBoxI .lfetFootSmallBox {
+  display: flex;
+  max-width: 129px;
+  max-height: 46px;
+  gap: 32px;
+  align-items: center;
+}
+.footBottom .footBoxI .lfetFootSmallBox span {
+  width: 105px;
+  height: 30px;
+  font-family: "Mina";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.044em;
+  color: #212529;
+}
+.footBottom .footBoxI .rightFootSmallBox {
+  display: flex;
+  max-width: 100%;
+  max-height: 48px;
+  gap: 40px;
+}
+.footBottom .footBoxI .rightFootSmallBox p {
+  display: flex;
+  max-height: 48px;
+  min-height: 48px;
+  padding: 12px 0px;
+  gap: 8px;
+}
+.footBottom .footBoxI .rightFootSmallBox p span {
+  font-family: "Noto Sans TC";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  color: #212529;
+}
+.footBottom .footBoxIi {
+  display: grid;
+  max-width: 1296px;
+  max-height: 78px;
+  border-top: 1px solid #dee2e6;
+  padding-top: 32px;
+  gap: 4px;
+  justify-items: center;
+}
+.footBottom .footBoxIi .lastTwo, .footBottom .footBoxIi .last {
+  max-width: 100%;
+  font-family: "Noto Sans TC";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+}
+.footBottom .footBoxIi .last {
+  max-width: 142px;
+}/*# sourceMappingURL=style.css.map */
